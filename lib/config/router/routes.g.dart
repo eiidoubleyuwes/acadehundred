@@ -15,6 +15,7 @@ List<RouteBase> get $appRoutes => [
   $completeProfileRoute,
   $shereheRoute,
   $todosRoute,
+  $aboutUsRoute,
 ];
 
 RouteBase get $mainLayoutShellRoute => ShellRouteData.$route(
@@ -311,6 +312,29 @@ mixin _$TodosRoute on GoRouteData {
 
   @override
   String get location => GoRouteData.$location('/todos');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $aboutUsRoute =>
+    GoRouteData.$route(path: '/about', factory: _$AboutUsRoute._fromState);
+
+mixin _$AboutUsRoute on GoRouteData {
+  static AboutUsRoute _fromState(GoRouterState state) => const AboutUsRoute();
+
+  @override
+  String get location => GoRouteData.$location('/about');
 
   @override
   void go(BuildContext context) => context.go(location);

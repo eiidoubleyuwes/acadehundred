@@ -5,6 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
 import 'package:time_since/time_since.dart';
 
+import '../../../../config/router/routes.dart';
+
 class ProfileView extends StatefulWidget {
   const ProfileView({super.key});
 
@@ -157,6 +159,18 @@ class _ProfileViewState extends State<ProfileView> {
                             ),
                           ),
                         ),
+                        ListTile(
+                          leading: Icon(
+                            Icons.info_outline,
+                          ),
+                          title: Text("About"),
+                          subtitle: Text(
+                            "App version, team, and licenses",
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                          onTap: () =>
+                              AboutUsRoute().push(context),
+                        )
                       ],
                     ),
                   ),

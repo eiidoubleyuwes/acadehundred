@@ -177,3 +177,14 @@ class TodosRoute extends GoRouteData with _$TodosRoute {
     return TodoHomeScreen();
   }
 }
+
+@TypedGoRoute<AboutUsRoute>(path: '/about')
+class AboutUsRoute extends GoRouteData with _$AboutUsRoute {
+  const AboutUsRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+
+    return const AboutUsPage();
+  }
+}
